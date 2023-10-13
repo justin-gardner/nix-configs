@@ -29,6 +29,7 @@
             ./home.nix
             ./modules/fish
             ./modules/git
+            ./modules/neovim
             ./modules/tmux
           ];
         };

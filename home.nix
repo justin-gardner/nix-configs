@@ -5,10 +5,9 @@
 }: {
   home = {
     homeDirectory = "/home/justin";
-    username = "justin";
     stateVersion = "23.05";
+    username = "justin";
   };
-
   programs = {
     home-manager.enable = true;
   };

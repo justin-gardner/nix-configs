@@ -15,6 +15,15 @@
     enable = true;
     extraConfig = {
       core.editor = "vim";
+      init = {
+        defaultBranch = "main";
+      };
+      pull = {
+        rebase = true;
+      };
+      push = {
+        autoSetupRemote = true;
+      };
     };
     userEmail = "github.frugally996@passmail.net";
     userName = "Justin Gardner";

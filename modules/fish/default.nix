@@ -3,8 +3,8 @@
     enable = true;
     interactiveShellInit = ''
       # generic
-      alias ls='exa -al --color=always --group-directories-first --icons'
-      alias ll='exa -l --color=always --group-directories-first --icons'
+      alias ll='exa -al --color=always --group-directories-first --icons'
+      alias ls='exa -l --color=always --group-directories-first --icons'
       alias mkdir='mkdir -p'
 
       # git-related
@@ -14,9 +14,9 @@
       alias rebase='/bin/sh ~/git_scripts/rebase'
 
       # home-manager
-      alias hmd='cd ~/dot_files/nix/home-manager'
-      alias hms='home-manager switch --flake ~/dot_files/nix/home-manager#justin'
-      alias hmu='nix flake update ~/dot_files/nix/home-manager && hms'
+      alias hmd='cd ~/nix-configs'
+      alias hms='home-manager switch --flake ~/nix-configs#justin'
+      alias hmu='nix flake update ~/nix-configs/ && hms'
     '';
     plugins = [
       {
