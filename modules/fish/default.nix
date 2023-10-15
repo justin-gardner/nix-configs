@@ -10,8 +10,8 @@
       # git-related
       alias g='git'
       alias git-rm-branches='git for-each-ref --format "%(refname:short)" refs/heads | grep -v "master\|main\|develop\|development" | xargs git branch -D'
-      alias cleanpush='/bin/sh ~/git_scripts/cleanpush'
-      alias rebase='/bin/sh ~/git_scripts/rebase'
+      alias cleanpush='/bin/sh ~/nix-configs/git-scripts/cleanpush'
+      alias rebase='/bin/sh ~/nix-configs/git-scripts/rebase'
 
       # home-manager
       alias hmd='cd ~/nix-configs'

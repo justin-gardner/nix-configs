@@ -1,0 +1,42 @@
+#!/bin/bash
+
+currentBranch=$(git branch --show-current)
+
+# Rebase your current base with main
+git checkout main || exit 1
+git pull --rebase
+git checkout ${currentBranch}
+git rebase main
+
+# This checks to see if your branch is already up to date with main. This should not cause it to fail, so
+# check the response and continue only if it says up to date, else fail because an error happened.
+responseMessage=$( git rebase main 2>&1)
+if [[ $responseMessage=="Current branch ${currentBranch} is up to date." ]]; then
+    echo "No changes to merge with for main, continuing."
+else
+    if [[ $?!=0 ]]; then
+        echo "Error with rebase, quitting."
+        exit 1
+    fi
+fi
+
+originMain=$(git rev-parse --short origin/main)
+
+# Rebase and squash your commits
+read -p "Run 'git rebase -i ${originMain}'? (Y/Q): " confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    git rebase -i ${originMain}
+else
+    echo "Quitting."
+    exit 1
+fi
+
+
+# Push branch to github
+read -p "Run 'git push origin ${currentBranch}'? (Y/Q): " confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    git push origin ${currentBranch} --force
+else
+    echo "Quitting."
+    exit 1
+fi
