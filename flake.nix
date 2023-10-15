@@ -1,4 +1,5 @@
 {
+  # [TODO] [CHANGE_ME] change description however you like
   description = "Justin's Home Manager Flake";
 
   inputs = {
@@ -22,6 +23,7 @@
       formatter = pkgs.alejandra;
 
       legacyPackages.homeConfigurations = {
+        # [TODO] [CHANGE_ME] change justin to your name
         justin = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
