@@ -5,4 +5,12 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("i", "jk", "<ESC>", opts)
+-- normal mode
+-- navigation
+keymap("n", "^", "<nop>", opts)
+keymap("n", "$", "<nop>", opts)
+keymap("n", "B", "^", opts)
+keymap("n", "E", "$", opts)
+
+-- insert mode
+keymap("i", "jk", "<ESC>", opts) -- easier escape

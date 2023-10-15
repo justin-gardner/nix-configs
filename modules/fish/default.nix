@@ -17,6 +17,10 @@
       alias hmd='cd ~/nix-configs'
       alias hms='home-manager switch --flake ~/nix-configs#justin'
       alias hmu='nix flake update ~/nix-configs/ && hms'
+
+      set fish_greeting
+      printf "%s\n" 3 1 2 1 1 1 4 3 1 1 2 2 2 y | tide configure
+      clear
     '';
     plugins = [
       {
