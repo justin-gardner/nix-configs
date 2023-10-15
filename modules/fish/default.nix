@@ -15,7 +15,7 @@
 
       # home-manager
       alias hmd='cd ~/nix-configs'
-      alias hms='home-manager switch --flake ~/nix-configs#justin'
+      alias hms='home-manager switch --flake ~/nix-configs#justin' # [TODO] [CHANGE_ME] change justin to the name you used in flake.nix
       alias hmu='nix flake update ~/nix-configs/ && hms'
 
       set fish_greeting

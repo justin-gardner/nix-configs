@@ -25,6 +25,7 @@
         autoSetupRemote = true;
       };
     };
+    # [TODO] [CHANGE_ME] Use your own name and email
     userEmail = "github.frugally996@passmail.net";
     userName = "Justin Gardner";
   };
