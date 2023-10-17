@@ -36,13 +36,17 @@ git clone https://github.com/justin-gardner/nix-configs.git ~/
 ```
 
 ### Change Some Variables
-There are a few variables you'll need to change (unless your name is also Justin).  You can find them by searching for [TODO] [CHANGE_ME]
+There are a few things you will need to change to get this working:
+
+- Update `modules/git/default.nix` to use your own Git credentials.
+- Either change one of the system-specific files in the `hosts/` directory or use one of those as a guideline in creating your own file.
+  - If you create a new file, you'll need to create a new section and import the new file in the `flake.nix` file and then add a new alias in the `modules/fish/default.nix` file to use that config.
 
 ### Activate the Configuration
-Run the following command to evaluate the configuration and create a user environment (change justin to the name you set in flake.nix):
+Run the following command to evaluate the configuration and create a user environment (change {system} to the name you set in flake.nix for your system):
 
 ```bash
-home-manager switch --flake ~/nix-configs#justin
+home-manager switch --flake ~/nix-configs#{system}
 ```
 
-You may need to close your terminal and reopen it for everything to update.  If you change any of the configurations, you can reload them by rerunning the above command, or the alias `hms`, which will do that for you.
+You will likely need to close your terminal and reopen it for everything to update.  If you change any of the configurations, you can reload them by rerunning the above command, or the corresponding `hms` alias.

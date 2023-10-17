@@ -15,8 +15,10 @@
 
       # home-manager
       alias hmd='cd ~/nix-configs'
-      alias hms='home-manager switch --flake ~/nix-configs#justin' # [TODO] [CHANGE_ME] change justin to the name you used in flake.nix
-      alias hmu='nix flake update ~/nix-configs/ && hms'
+      alias hms-dev='home-manager switch --flake ~/nix-configs#dev'
+      alias hms-home='home-manager switch --flake ~/nix-configs#home'
+      alias hms-work='home-manager switch --flake ~/nix-configs#work'
+      alias hmu='nix flake update ~/nix-configs/'
 
       set fish_greeting
       printf "%s\n" 3 1 2 1 1 1 4 3 1 1 2 2 2 y | tide configure

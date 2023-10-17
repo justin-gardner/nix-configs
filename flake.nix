@@ -1,6 +1,5 @@
 {
-  # [TODO] [CHANGE_ME] change description however you like
-  description = "Justin's Home Manager Flake";
+  description = "Home Manager Flake";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
@@ -23,17 +22,20 @@
       formatter = pkgs.alejandra;
 
       legacyPackages.homeConfigurations = {
-        # [TODO] [CHANGE_ME] change justin to your name
-        justin = home-manager.lib.homeManagerConfiguration {
+        dev = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
-          modules = [
-            ./home.nix
-            ./modules/fish
-            ./modules/git
-            ./modules/neovim
-            ./modules/tmux
-          ];
+          modules = [./hosts/dev-box.nix];
+        };
+        home = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          modules = [./hosts/home-desktop.nix];
+        };
+        work = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          modules = [./hosts/work-laptop.nix];
         };
       };
     });
