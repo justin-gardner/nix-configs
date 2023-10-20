@@ -3,7 +3,7 @@
     clock24 = true;
     enable = true;
     extraConfig = ''
-      set-option -g default-shell /usr/bin/fish
+      set-option -g default-shell ~/.nix-profile/bin/fish
       set-option -sa terminal-overrides ",xterm*:Tc"
 
       # change prefix to C-a
