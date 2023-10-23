@@ -3,8 +3,6 @@
     defaultEditor = true;
     enable = true;
     extraLuaConfig = ''
-      require("os").execute("mkdir ~/.config/nvim/lua/user/plugins")
-
       ${builtins.readFile config/autocmds.lua}
       ${builtins.readFile config/keymaps.lua}
       ${builtins.readFile config/lazy.lua}
