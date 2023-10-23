@@ -16,6 +16,32 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     -- { import = "plugins" },
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      opts = {
+        filesystem = {
+          filtered_items = {
+            visible = true,
+          },
+        },
+      },
+      --[[ this doesn't quite work, but is the closest i've gotten
+      keys = {
+        {
+          "h",
+          function(state)
+            local node = state.tree:get_node()
+
+            if node.type == "directory" and node:is_expanded() then
+              require("neo-tree.sources.filesystem").toggle_directory(state, node)
+            else
+              require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
+            end
+          end,
+          desc = "Close Parent Node",
+        },
+      },--]]
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
