@@ -11,11 +11,14 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    -- import/override with your plugins
-    -- { import = "plugins" },
+    { import = "lazyvim.plugins.extras.editor.aerial" },
+    { import = "lazyvim.plugins.extras.editor.leap" },
+    { import = "lazyvim.plugins.extras.dap.core" },
+    { import = "lazyvim.plugins.extras.dap.nlua" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.python" },
+    -- change plugin settings here
     {
       "nvim-neo-tree/neo-tree.nvim",
       opts = {
@@ -25,22 +28,6 @@ require("lazy").setup({
           },
         },
       },
-      --[[ this doesn't quite work, but is the closest i've gotten
-      keys = {
-        {
-          "h",
-          function(state)
-            local node = state.tree:get_node()
-
-            if node.type == "directory" and node:is_expanded() then
-              require("neo-tree.sources.filesystem").toggle_directory(state, node)
-            else
-              require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
-            end
-          end,
-          desc = "Close Parent Node",
-        },
-      },--]]
     },
     -- Use <tab> for completion and snippets (supertab)
     -- first: disable default <tab> and <s-tab> behavior in LuaSnip
@@ -114,6 +101,27 @@ require("lazy").setup({
           end,
         })
       end,
+    },
+    {
+      "nvimdev/dashboard-nvim",
+      opts = {
+        config = {
+          header = vim.split(
+            [[
+
+
+██    ██ ███████  ██████  ██████  ██████  ███████ 
+██    ██ ██      ██      ██    ██ ██   ██ ██      
+██    ██ ███████ ██      ██    ██ ██   ██ █████   
+  ██  ██       ██ ██      ██    ██ ██   ██ ██      
+  ████   ███████  ██████  ██████  ██████  ███████ 
+
+
+            ]],
+            "\n"
+          ),
+        },
+      },
     },
   },
   defaults = {
