@@ -21,17 +21,16 @@
       alias hmu='nix flake update ~/nix-configs/'
 
       set fish_greeting
-      printf "%s\n" 3 1 2 1 1 1 4 3 1 1 2 2 2 y | tide configure
       clear
     '';
     plugins = [
       {
-        name = "Tide";
+        name = "pure";
         src = pkgs.fetchFromGitHub {
-          owner = "IlanCosman";
-          repo = "tide";
-          rev = "7f9d24de000a5f8ad68f738207187a36ecbb87c9";
-          sha256 = "sha256-bSqFyrCa72s1rfwGOzOj033VbonxOkVDm9eUePRCSmA=";
+          owner = "pure-fish";
+          repo = "pure";
+          rev = "f1b2c7049de3f5cb45e29c57a6efef005e3d03ff";
+          sha256 = "sha256-MnlqKRmMNVp6g9tet8sr5Vd8LmJAbZqLIGoDE5rlu8E";
         };
       }
     ];
