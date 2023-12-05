@@ -6,7 +6,6 @@ currentBranch=$(git branch --show-current)
 git checkout $1 || exit 1
 git pull --rebase
 git checkout ${currentBranch}
-git rebase $1
 
 # This checks to see if your branch is already up to date with main. This should not cause it to fail, so
 # check the response and continue only if it says up to date, else fail because an error happened.
