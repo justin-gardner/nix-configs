@@ -20,6 +20,9 @@
       alias hms-work='home-manager switch --flake ~/nix-configs#work'
       alias hmu='nix flake update ~/nix-configs/'
 
+      # dev-box stuff
+      export PYTHONPATH='/home/ubuntu/axuall/automated_checks'
+
       set fish_greeting
       clear
     '';
