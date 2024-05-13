@@ -5,3 +5,10 @@
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   command = "silent! lcd %:p:h",
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
