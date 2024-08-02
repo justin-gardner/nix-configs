@@ -9,11 +9,11 @@
       ${builtins.readFile config/options.lua}
     '';
     extraPackages = with pkgs; [
-      nerdfonts
-      lazygit
-      ripgrep
-      fd
       alacritty
+      fd
+      lazygit
+      nerdfonts
+      ripgrep
     ];
     viAlias = true;
     vimAlias = true;
